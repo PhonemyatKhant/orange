@@ -1,0 +1,19 @@
+@function getColor($color) {
+  @return map-get($colors, $color);
+}
+
+@mixin flex($value) {
+  display: flex;
+  align-items: center;
+  justify-content: ($value);
+}
+@mixin desktop() {
+  @media screen and(min-width:992px) {
+    @content;
+  }
+}
+@mixin tablet() {
+  @media screen and(min-width:756px) {
+    @content;
+  }
+}

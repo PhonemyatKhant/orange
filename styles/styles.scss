@@ -1,0 +1,447 @@
+@import "attributes";
+@import "media";
+
+html {
+  scroll-behavior: smooth;
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Barlow";
+  color: getColor("White");
+
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+i,
+button {
+  color: getColor("White");
+  font-size: 1.5rem;
+  border: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: getColor("White");
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Barlow";
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1rem;
+}
+h4 {
+  font-size: 0.8rem;
+}
+p {
+  font-family: "barlow";
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+span {
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+@media screen and (min-width: 756px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+@media screen and (min-width: 1440px) {
+  h1 {
+    font-size: 5rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+  body {
+    font-size: 1.2rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.5;
+  }
+}
+//##########################end of global classes###########################
+
+.hero {
+  background: url(/images/mobile/image-header.jpg) center/cover no-repeat;
+  min-height: 100vh;
+  nav {
+    position: relative;
+    padding: 1.5rem 1rem;
+    .nav-center {
+      @include flex(space-between);
+      h2 {
+        font-size: 1.5rem;
+        text-transform: lowercase;
+      }
+      .toggle-btn {
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+    }
+    .nav-links.active {
+      display: block;
+      height: auto;
+    }
+    .nav-links {
+      position: absolute;
+      max-width: 90vw;
+      z-index: 100;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2rem;
+      text-align: center;
+      background-color: getColor("White");
+      overflow: hidden;
+      height: 0;
+      .links-container {
+        li {
+          display: block;
+          padding: 1rem;
+          a {
+            font-weight: bold;
+            color: getColor("Grayish blue");
+          }
+          .contact-btn {
+            background-color: getColor("Yellow");
+
+            padding: 0.5rem 0.8rem;
+            border-radius: 100px;
+            @include flex(center);
+            margin: 0 auto;
+            cursor: pointer;
+            span {
+              font-family: "Fraunces";
+              font-size: 0.85rem;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    text-align: center;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    h1 {
+      font-family: "Fraunces";
+      text-transform: uppercase;
+    }
+    img {
+      max-width: 2.5rem;
+      margin: 0 auto;
+    }
+  }
+}
+@include desktop {
+  .hero {
+    background: url(/images/desktop/image-header.jpg) center/cover no-repeat;
+    nav {
+      @include flex(space-between);
+      .nav-center i {
+        display: none;
+      }
+      .nav-links {
+        height: auto !important;
+        position: relative;
+        margin: 0;
+        background: transparent;
+        .links-container {
+          @include flex(space-between);
+          li {
+            a {
+              color: getColor("White");
+            }
+            padding: 0 1rem;
+            .contact-btn {
+              background-color: getColor("White");
+              span {
+                color: getColor("Very dark desaturated blue");
+              }
+              &:hover {
+                background-color: rgba(255, 255, 255, 0.438);
+                span {
+                  color: getColor("White");
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.about {
+  text-align: center;
+  color: getColor("Very dark desaturated blue");
+  p {
+    color: getColor("Grayish blue");
+    padding-top: 2rem;
+  }
+
+  .about-container {
+    display: grid;
+    place-items: center;
+
+    .text-container {
+      padding: 2rem 1.5rem;
+      h2 {
+        font-family: "Fraunces";
+      }
+      .learnmore-btn {
+        max-width: fit-content;
+        margin: 0 auto;
+        position: relative;
+        cursor: pointer;
+        padding-bottom: 1rem;
+        h3 {
+          font-family: "Fraunces";
+          font-weight: bold;
+        }
+        .underline {
+          position: absolute;
+          height: 5px;
+
+          width: 100%;
+          top: 13px;
+          border-radius: 3px;
+          z-index: -1;
+        }
+        .yellow {
+          background-color: getColor("Yellow");
+        }
+        .pink {
+          background-color: getColor("Soft red");
+        }
+      }
+    }
+  }
+}
+@include tablet {
+  .about {
+    .about-container {
+      grid-template-columns: 1fr 1fr;
+      .img2 {
+        order: 4;
+      }
+
+      .text-container .learnmore-btn .underline {
+        top: 22px;
+      }
+    }
+  }
+}
+@include desktop {
+  .about {
+    .about-container {
+      grid-template-columns: 1fr 1fr;
+      .img2 {
+        order: 4;
+      }
+      .text-container2 {
+        order: 3;
+      }
+    }
+  }
+}
+.services {
+  text-align: center;
+  color: getColor("Very dark desaturated blue");
+  h2 {
+    font-weight: bold;
+    letter-spacing: normal;
+    font-family: "Fraunces";
+  }
+  p {
+    color: getColor("Very dark desaturated blue");
+    padding-top: 2rem;
+  }
+  .cherry,
+  .orange {
+    position: relative;
+    padding: 1rem 0;
+    background: url(/images/mobile/image-graphic-design.jpg) center/cover
+      no-repeat;
+    min-height: 80vh;
+    .text-container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+  .orange {
+    background: url(/images/mobile/image-photography.jpg) center/cover no-repeat;
+  }
+}
+@include tablet {
+  .services {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    .cherry {
+      background: url(/images/desktop/image-graphic-design.jpg) center/cover
+        no-repeat;
+    }
+    .orange {
+      background: url(/images/desktop/image-photography.jpg) center/cover
+        no-repeat;
+    }
+  }
+}
+@include desktop {
+  .services {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    .cherry {
+      background: url(/images/desktop/image-graphic-design.jpg) center/cover
+        no-repeat;
+    }
+    .orange {
+      background: url(/images/desktop/image-photography.jpg) center/cover
+        no-repeat;
+    }
+  }
+}
+.clients {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: getColor("Grayish blue");
+  padding: 2rem 0;
+  h3 {
+    color: getColor("Very dark desaturated blue");
+    font-weight: bold;
+    font-family: "Fraunces";
+  }
+  h4 {
+    font-weight: bold;
+    font-family: "Fraunces";
+  }
+  p {
+    color: getColor("Dark blue (photography text)");
+    padding-top: 2rem;
+  }
+  .title {
+    margin-bottom: 3rem;
+    letter-spacing: 0.3rem;
+    color: getColor("Grayish blue");
+  }
+  .client-item {
+    display: grid;
+    place-items: center;
+    max-width: 80vw;
+    margin: 0 auto;
+
+    img {
+      border-radius: 50%;
+      max-width: 100px;
+      margin: 0 auto;
+    }
+    h3 {
+      letter-spacing: normal;
+      margin-bottom: 1rem;
+      color: getColor("Very dark desaturated blue");
+    }
+    h4 {
+      letter-spacing: normal;
+      margin-bottom: 2rem;
+      font-family: "Barlow";
+    }
+  }
+}
+@include tablet {
+  .clients {
+    .title {
+      margin-top: 5rem;
+    }
+    .client-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+@include desktop {
+  .clients {
+    .title {
+      margin-top: 5rem;
+    }
+    .client-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+.projects {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+@include tablet {
+  .projects {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
